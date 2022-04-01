@@ -48,7 +48,7 @@ function NFTDropPage() {
                     onClick={() =>
                       address ? disconnect() : connectWithMetamask()
                     }
-                    className="relative flex items-center space-x-4 divide-gray-600 rounded-lg bg-white px-4 py-2 leading-none text-blue-200 transition duration-200 hover:text-purple-300 dark:bg-black md:px-5 md:py-3"
+                    className="relative flex items-center space-x-4 divide-gray-600 rounded-lg bg-white px-4 py-2 leading-none text-blue-200 transition duration-200 hover:text-purple-30 bg-black md:px-5 md:py-3"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ function NFTDropPage() {
                       />
                     </svg>
 
-                    <span className="font-poppins text-sm tracking-wider text-white transition duration-200 group-hover:text-purple-900 dark:group-hover:text-purple-300 md:text-lg">
+                    <span className="font-poppins text-sm tracking-wider text-white transition duration-200 group-hover:text-purple-900 group-hover:text-purple-300 md:text-lg">
                       {address ? 'Sign Out' : 'Sign In'}
                     </span>
                   </button>
@@ -157,7 +157,7 @@ function NFTDropPage() {
                 </div>
                 <div className="group relative mt-10">
                   <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-40 blur transition duration-1000 group-hover:opacity-100"></div>
-                  <button className="relative flex w-full items-center justify-center space-x-4 divide-gray-600 rounded-lg bg-white px-4 py-3 leading-none text-blue-200 transition duration-200 hover:text-purple-300 dark:bg-black md:px-6 md:py-4">
+                  <button className="relative flex w-full items-center justify-center space-x-4 divide-gray-600 rounded-lg bg-white px-4 py-3 leading-none text-blue-200 transition duration-200 hover:text-purple-300 bg-black md:px-6 md:py-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6"
@@ -173,7 +173,7 @@ function NFTDropPage() {
                       />
                     </svg>
 
-                    <span className="font-poppins text-sm tracking-wider text-white transition duration-200 group-hover:text-purple-900 dark:group-hover:text-purple-300 md:text-lg">
+                    <span className="font-poppins text-sm tracking-wider text-white transition duration-200 group-hover:text-purple-90 group-hover:text-purple-300 md:text-lg">
                       MINT NFT (0.01 ETH)
                     </span>
                   </button>
