@@ -22,15 +22,19 @@ function NFTDropPage() {
           {/* Right */}
           <div className="flex min-h-screen flex-1 flex-col p-12">
             {/* Header */}
-            <header className="flex items-center justify-between border-b border-pink-400/[0.15] pb-10">
-              <Link href="/">
-                <h1 className="cursor-pointer font-poppins text-sm font-extralight uppercase tracking-wider text-purple-300/50 md:text-xl">
-                  The{' '}
-                  <span className="font-medium text-purple-400">Greatest</span>{' '}
-                  NFT Market Place
-                </h1>
-              </Link>
-              <div class="group relative">
+            <header className="flex flex-col items-center justify-between border-b border-pink-400/[0.15] pb-8 md:flex-row md:pb-10">
+              <div>
+                <Link href="/">
+                  <h1 className="cursor-pointer font-poppins text-sm font-extralight uppercase tracking-wider text-purple-300/50 md:text-xl">
+                    The{' '}
+                    <span className="font-medium text-purple-400">
+                      Greatest
+                    </span>{' '}
+                    NFT Market Place
+                  </h1>
+                </Link>
+              </div>
+              <div class="group relative mt-6 md:mt-0">
                 <div class="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
                 <button
                   onClick={() =>
@@ -71,10 +75,10 @@ function NFTDropPage() {
                 {address.substring(address.length - 5)}
               </p>
             )}
-            <div className="grid flex-grow grid-cols-2 items-center gap-24">
+            <div className="grid flex-grow items-center gap-0 md:grid-cols-2 md:gap-24">
               {/* content */}
-              <div className="col-span-1 mt-10 flex flex-col space-y-6 rounded-xl  lg:justify-center lg:space-y-2">
-                <h1 className="font-poppins text-3xl font-light text-white lg:text-6xl">
+              <div className="col-span-1 mt-10 flex flex-col space-y-6 rounded-xl text-center md:text-left  lg:justify-center lg:space-y-2">
+                <h1 className="font-poppins text-4xl font-light text-white lg:text-6xl">
                   The <span className="font-bold text-amber-500">Greatest</span>{' '}
                   is coming...
                 </h1>

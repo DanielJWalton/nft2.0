@@ -18,7 +18,7 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="bg-opacity-05 to-blue-400[0.25] relative flex min-h-screen flex-col items-center justify-center  space-y-8 bg-gradient-to-tr from-purple-400/[0.15] md:space-y-12">
-        <h1 className="font-poppins text-4xl font-light text-white md:text-5xl">
+        <h1 className="font-poppins text-4xl font-extralight text-purple-500 md:text-5xl">
           The <span className="font-bold text-amber-500">greatest</span> NFTs
         </h1>
         <div class="group relative">
@@ -47,7 +47,7 @@ const Home: NextPage = () => {
           </Link>
         </div>
         <p className="absolute bottom-6 left-6 font-poppins text-xl font-extralight text-purple-300 md:text-3xl">
-          <span className="text-purple-400">butters</span>
+          <span className="text-pink-400">butters</span>
         </p>
       </div>
     </div>
