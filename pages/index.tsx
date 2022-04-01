@@ -18,7 +18,7 @@ const Home: NextPage = () => {
         <div className="group relative">
           <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
           <Link href="/nft/greatest">
-            <a className="relative flex items-center space-x-4 divide-gray-600 rounded-lg bg-white px-7 py-4 leading-none text-blue-200 transition duration-200 hover:text-purple-300 bg-black">
+            <a className="relative flex items-center space-x-4 divide-gray-600 rounded-lg  px-7 py-4 leading-none text-blue-200 transition duration-200 hover:text-purple-300 bg-black">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
                 />
               </svg>
 
-              <span className="font-poppins text-lg tracking-wider text-white transition duration-200 group-hover:text-purple-900 group-hover:text-purple-300">
+              <span className="font-poppins text-lg tracking-wider text-white transition duration-200  group-hover:text-purple-300">
                 Enter Site
               </span>
             </a>
