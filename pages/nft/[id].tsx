@@ -85,7 +85,7 @@ function NFTDropPage() {
                   revolution.
                 </p>
               </div>
-              {/* Mint Button */}
+              {/* Images */}
               <div className="col-span-1">
                 <div className="grid grid-cols-3 gap-3 md:gap-6">
                   <div className="flex flex-col gap-3 pt-24 md:gap-6">
@@ -157,12 +157,7 @@ function NFTDropPage() {
                 </div>
                 <div className="group relative mt-10">
                   <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-40 blur transition duration-1000 group-hover:opacity-100"></div>
-                  <button
-                    onClick={() =>
-                      address ? disconnect() : connectWithMetamask()
-                    }
-                    className="relative flex w-full items-center justify-center space-x-4 divide-gray-600 rounded-lg bg-white px-4 py-3 leading-none text-blue-200 transition duration-200 hover:text-purple-300 dark:bg-black md:px-6 md:py-4"
-                  >
+                  <button className="relative flex w-full items-center justify-center space-x-4 divide-gray-600 rounded-lg bg-white px-4 py-3 leading-none text-blue-200 transition duration-200 hover:text-purple-300 dark:bg-black md:px-6 md:py-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6"
