@@ -34,48 +34,43 @@ function NFTDropPage() {
                   </h1>
                 </Link>
               </div>
-              <div className="group relative mt-6 md:mt-0">
-                <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
-                <button
-                  onClick={() =>
-                    address ? disconnect() : connectWithMetamask()
-                  }
-                  className="relative flex items-center space-x-4 divide-gray-600 rounded-lg bg-white px-4 py-2 leading-none text-blue-200 transition duration-200 hover:text-purple-300 dark:bg-black md:px-5 md:py-3"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
+              <div className="mt-6 flex flex-col items-center space-y-4 md:mt-0 md:flex-row  md:space-y-0 md:space-x-5">
+                {address && (
+                  <p className="text-center text-sm text-amber-300">
+                    You're logged in with wallet {address.substring(0, 5)}
+                    ...
+                    {address.substring(address.length - 5)}
+                  </p>
+                )}
+                <div className="group relative">
+                  <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
+                  <button
+                    onClick={() =>
+                      address ? disconnect() : connectWithMetamask()
+                    }
+                    className="relative flex items-center space-x-4 divide-gray-600 rounded-lg bg-white px-4 py-2 leading-none text-blue-200 transition duration-200 hover:text-purple-300 dark:bg-black md:px-5 md:py-3"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                    />
-                  </svg>
-                  <div className="flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-3">
-                    {address && (
-                      <p className="text-center text-sm text-purple-400">
-                        You're logged in with wallet {address.substring(0, 5)}
-                        ...
-                        {address.substring(address.length - 5)}
-                      </p>
-                    )}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                      />
+                    </svg>
+
                     <span className="font-poppins text-sm tracking-wider text-white transition duration-200 group-hover:text-purple-900 dark:group-hover:text-purple-300 md:text-lg">
                       {address ? 'Sign Out' : 'Sign In'}
                     </span>
-                  </div>
-                </button>
+                  </button>
+                </div>
               </div>
-              {/* <button
-            onClick={() => (address ? disconnect() : connectWithMetamask())}
-            className="rounded-full bg-rose-400 px-4 py-2 text-xs font-bold text-white lg:px-5 lg:py-3 lg:text-base"
-          >
-            {address ? 'Sign Out' : 'Sign In'}
-          </button> */}
             </header>
 
             <div className="grid flex-grow items-center gap-0 md:grid-cols-2 md:gap-24 md:pt-12">
@@ -92,8 +87,8 @@ function NFTDropPage() {
               </div>
               {/* Mint Button */}
               <div className="col-span-1">
-                <div className="grid grid-cols-3 gap-6">
-                  <div className="flex flex-col gap-6 pt-24">
+                <div className="grid grid-cols-3 gap-3 md:gap-6">
+                  <div className="flex flex-col gap-3 pt-24 md:gap-6">
                     <div className="rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5">
                       <Image
                         src={bayc}
@@ -115,7 +110,7 @@ function NFTDropPage() {
                       />
                     </div>
                   </div>
-                  <div className="flex flex-col gap-6 pt-12">
+                  <div className="flex flex-col gap-3 pt-12 md:gap-6">
                     <div className="rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5">
                       <Image
                         src={mayc}
@@ -137,7 +132,7 @@ function NFTDropPage() {
                       />
                     </div>
                   </div>
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-3 md:gap-6">
                     <div className="rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5">
                       <Image
                         src={azuki}
