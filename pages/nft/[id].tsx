@@ -56,10 +56,18 @@ function NFTDropPage() {
                       d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                     />
                   </svg>
-
-                  <span className="font-poppins text-sm tracking-wider text-white transition duration-200 group-hover:text-purple-900 dark:group-hover:text-purple-300 md:text-lg">
-                    {address ? 'Sign Out' : 'Sign In'}
-                  </span>
+                  <div className="flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-3">
+                    {address && (
+                      <p className="text-center text-sm text-purple-400">
+                        You're logged in with wallet {address.substring(0, 5)}
+                        ...
+                        {address.substring(address.length - 5)}
+                      </p>
+                    )}
+                    <span className="font-poppins text-sm tracking-wider text-white transition duration-200 group-hover:text-purple-900 dark:group-hover:text-purple-300 md:text-lg">
+                      {address ? 'Sign Out' : 'Sign In'}
+                    </span>
+                  </div>
                 </button>
               </div>
               {/* <button
@@ -69,13 +77,8 @@ function NFTDropPage() {
             {address ? 'Sign Out' : 'Sign In'}
           </button> */}
             </header>
-            {address && (
-              <p className="text-center text-sm text-rose-400">
-                You're logged in with wallet {address.substring(0, 5)}...
-                {address.substring(address.length - 5)}
-              </p>
-            )}
-            <div className="grid flex-grow items-center gap-0 md:grid-cols-2 md:gap-24">
+
+            <div className="grid flex-grow items-center gap-0 md:grid-cols-2 md:gap-24 md:pt-12">
               {/* content */}
               <div className="col-span-1 mt-10 flex flex-col space-y-6 rounded-xl text-center md:text-left  lg:justify-center lg:space-y-2">
                 <h1 className="font-poppins text-4xl font-light text-white lg:text-6xl">
