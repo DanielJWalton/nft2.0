@@ -9,12 +9,6 @@ const Home: NextPage = () => {
       <Head>
         <title>NFT Drop</title>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap"
-          rel="stylesheet"
-        ></link>
       </Head>
 
       <div className="bg-opacity-05 to-blue-400[0.25] relative flex min-h-screen flex-col items-center justify-center  space-y-8 bg-gradient-to-tr from-purple-400/[0.15] md:space-y-12">
