@@ -15,10 +15,10 @@ const Home: NextPage = () => {
         <h1 className="font-poppins text-4xl font-extralight text-purple-500 md:text-5xl">
           The <span className="font-bold text-amber-500">greatest</span> NFTs
         </h1>
-        <div class="group relative">
-          <div class="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
+        <div className="group relative">
+          <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
           <Link href="/nft/greatest">
-            <a class="relative flex items-center space-x-4 divide-gray-600 rounded-lg bg-white px-7 py-4 leading-none text-blue-200 transition duration-200 hover:text-purple-300 dark:bg-black">
+            <a className="relative flex items-center space-x-4 divide-gray-600 rounded-lg bg-white px-7 py-4 leading-none text-blue-200 transition duration-200 hover:text-purple-300 dark:bg-black">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
                 />
               </svg>
 
-              <span class="font-poppins text-lg tracking-wider text-white transition duration-200 group-hover:text-purple-900 dark:group-hover:text-purple-300">
+              <span className="font-poppins text-lg tracking-wider text-white transition duration-200 group-hover:text-purple-900 dark:group-hover:text-purple-300">
                 Enter Site
               </span>
             </a>
