@@ -10,7 +10,7 @@ const Button = ({ icon, text }: Props) => {
 
       <div className="relative flex items-center space-x-4 divide-gray-600 rounded-lg  bg-black px-7 py-4 leading-none text-blue-200 transition duration-200 hover:text-purple-300">
         {icon}
-        <span className="font-poppins text-lg tracking-wider text-white transition duration-200  group-hover:text-purple-300">
+        <span className="font-poppins text-lg capitalize tracking-wider text-white transition  duration-200 group-hover:text-purple-300">
           {text}
         </span>
       </div>

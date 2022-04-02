@@ -1,5 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { GetServerSideProps } from 'next'
+import { sanityClient, urlFor } from '../../sanity'
+import { Collection } from '../../typings'
+import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
+
 import bayc from '../../public/bayc.png'
 import mayc from '../../public/mayc.png'
 import punk from '../../public/punk.png'
@@ -10,9 +15,11 @@ import something from '../../public/something.png'
 import Button from '../../components/Button'
 import Footer from '../../components/Footer'
 
-import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
+interface Props {
+  collection: Collection
+}
 
-function NFTDropPage() {
+function NFTDropPage({ collection }: Props) {
   // Auth
   const connectWithMetamask = useMetamask()
   const address = useAddress()
@@ -75,13 +82,14 @@ function NFTDropPage() {
             <div className="grid flex-grow items-center gap-0 md:grid-cols-2 md:gap-24 md:pt-12">
               <div className="col-span-1 mt-10 flex flex-col space-y-6 rounded-xl text-center md:text-left  lg:justify-center lg:space-y-2">
                 {/* HERO COPY */}
-                <h1 className="font-poppins text-4xl font-light text-white lg:text-6xl">
-                  The <span className="font-bold text-amber-500">Greatest</span>{' '}
-                  is coming...
+                <h1 className="font-poppins text-4xl font-medium text-white lg:text-6xl">
+                  {collection.title}
                 </h1>
                 <p className="text-md p-2  pt-2 font-poppins font-extralight uppercase tracking-wider text-purple-300 lg:text-lg">
-                  <span className="font-poppins font-semibold">Join</span> the
-                  revolution.
+                  <span className="font-poppins font-semibold">
+                    {collection.nftCollectionName}
+                  </span>{' '}
+                  {collection.description}
                 </p>
               </div>
               <div className="col-span-1">
@@ -90,7 +98,7 @@ function NFTDropPage() {
                   <div className="flex flex-col gap-3 pt-24 md:gap-6">
                     <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
                       <Image
-                        src={bayc}
+                        src={urlFor(collection.mainImage).url()}
                         width={400}
                         height={400}
                         layout="responsive"
@@ -186,3 +194,46 @@ function NFTDropPage() {
 }
 
 export default NFTDropPage
+
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const query = `*[_type == "collection" && slug.current == $id][0]{
+        _id,
+        title,
+        address,
+        description,
+        nftCollectionName,
+        mainImage {
+        asset
+      },
+      previewImage {
+        asset
+      },
+      slug {
+        current
+      },
+      creator-> {
+        _id,
+        name,
+        address,
+        slug {
+        current
+      },
+    },
+  }`
+
+  const collection = await sanityClient.fetch(query, {
+    id: params?.id,
+  })
+
+  if (!collection) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: {
+      collection,
+    },
+  }
+}
