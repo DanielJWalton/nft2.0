@@ -103,7 +103,7 @@ function NFTDropPage({ collection }: Props) {
                     </p>
                   </div>
                   <div className="space-between flex w-full flex-col items-center gap-2 md:gap-6 lg:flex-row lg:pb-2">
-                    <div className="group relative w-full">
+                    <div className="group relative w-full cursor-pointer">
                       <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
 
                       <div className="relative flex items-center justify-between space-x-4 divide-gray-600 rounded-lg bg-black  px-7 py-4 leading-none text-blue-200 transition duration-200 hover:text-purple-300 lg:justify-start">
@@ -128,7 +128,7 @@ function NFTDropPage({ collection }: Props) {
                     </div>
 
                     <Link href="/">
-                      <div className="group relative w-full">
+                      <div className="group relative w-full cursor-pointer">
                         <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-amber-600 to-pink-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
 
                         <div className="relative flex items-center justify-between space-x-4 divide-gray-600 rounded-lg bg-black  px-7 py-4 leading-none text-blue-200 transition duration-200 hover:text-purple-300 lg:justify-start">
