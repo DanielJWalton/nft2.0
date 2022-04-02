@@ -46,7 +46,7 @@ function Container({ children }: Props) {
 
               <div className="mt-6 flex flex-col items-center space-y-4 md:mt-0 md:flex-row  md:space-y-0 md:space-x-5">
                 {address && (
-                  <p className="text-center text-sm text-amber-300">
+                  <p className="text-center text-sm text-amber-600 dark:text-amber-300">
                     You're logged in with wallet {address.substring(0, 5)}
                     ...
                     {address.substring(address.length - 5)}
