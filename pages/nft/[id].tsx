@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAddress, useNFTDrop } from '@thirdweb-dev/react'
+import { useTheme } from 'next-themes'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -24,6 +25,7 @@ function NFTDropPage({ collection }: Props) {
   const [loading, setLoading] = useState<boolean>(true)
   const nftDrop = useNFTDrop(collection.address)
 
+  const { theme } = useTheme()
   const address = useAddress()
 
   useEffect(() => {
@@ -62,13 +64,13 @@ function NFTDropPage({ collection }: Props) {
     const quantity = 1
 
     setLoading(true)
+
     const notification = toast.loading('Minting...', {
       style: {
-        background: 'white',
+        background: theme === 'dark' ? 'black' : 'white',
         color: 'green',
-        fontWeight: 'bolder',
         fontSize: '17px',
-        padding: '20px',
+        padding: '14px 28px',
       },
     })
 
@@ -79,14 +81,13 @@ function NFTDropPage({ collection }: Props) {
         const claimedTokenId = tx[0].id // the ID of the NFT claimed
         const claimedNFT = await tx[0].data() // (optional) get the claimed metadata - attributes etc.
 
-        toast('Successfully Minted!', {
+        toast.success('Successfully minted!', {
           duration: 8000,
           style: {
-            background: 'green',
-            color: 'white',
-            fontWeight: 'bolder',
+            background: theme === 'dark' ? 'black' : 'white',
+            color: 'green',
             fontSize: '17px',
-            padding: '20px',
+            padding: '14px 28px',
           },
         })
 
@@ -97,13 +98,12 @@ function NFTDropPage({ collection }: Props) {
       .catch((err) => {
         console.log(err)
 
-        toast('Whoops...Something Went Wrong.', {
+        toast.error('Something went wrong.', {
           style: {
-            background: 'red',
-            color: 'white',
-            fontWeight: 'bolder',
+            background: theme === 'dark' ? 'black' : 'white',
+            color: 'red',
             fontSize: '17px',
-            padding: '20px',
+            padding: '14px 28px',
           },
         })
       })
@@ -147,11 +147,11 @@ function NFTDropPage({ collection }: Props) {
                 owner today. Connect your wallet to get started.
               </p>
               {loading ? (
-                <p className="mb-6 mt-2 inline-block w-auto animate-pulse rounded-md bg-white p-3 font-poppins text-lg font-medium uppercase text-green-500 shadow-lg dark:bg-black md:mb-0">
+                <p className="mb-6 mt-2 inline-block w-auto animate-pulse rounded-md bg-white py-3 px-4 font-poppins text-lg font-medium uppercase text-green-600 shadow-lg dark:bg-black dark:text-green-500 md:mb-0">
                   Loading supply count ...
                 </p>
               ) : (
-                <p className="mb-6 mt-2 inline-block w-auto rounded-md bg-white p-3 font-poppins text-lg font-medium uppercase text-green-500 shadow-lg dark:bg-black md:mb-0">
+                <p className="mb-6 mt-2 inline-block w-auto rounded-md bg-white py-3 px-4 font-poppins text-lg font-medium uppercase text-green-600 shadow-lg dark:bg-black dark:text-green-500 md:mb-0">
                   {claimedSupply} / {totalSupply?.toString()} NFT's claimed
                 </p>
               )}
@@ -175,7 +175,7 @@ function NFTDropPage({ collection }: Props) {
                     !address
                   }
                   onClick={mintNft}
-                  className="relative flex w-full cursor-pointer items-center justify-between space-x-4 divide-gray-600 rounded-lg bg-white px-7 py-4  leading-none text-black transition duration-200 hover:text-purple-500 disabled:cursor-not-allowed disabled:bg-gray-700/50 disabled:hover:text-black dark:bg-black dark:text-white dark:hover:text-purple-300 dark:disabled:bg-gray-300/50 disabled:dark:hover:text-white lg:justify-start"
+                  className="relative flex w-full cursor-pointer items-center justify-between space-x-4 divide-gray-600 rounded-lg bg-white px-7 py-4  leading-none text-black transition duration-200 hover:text-purple-500 disabled:cursor-not-allowed disabled:bg-gray-400/50 disabled:hover:text-black dark:bg-black dark:text-white dark:hover:text-purple-300 dark:disabled:bg-gray-500/50 disabled:dark:hover:text-white lg:justify-start"
                 >
                   {loading ? (
                     <svg
