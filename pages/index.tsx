@@ -28,7 +28,7 @@ const Home = ({ collections }: Props) => {
       </Head>
       <div className="min-h-screen bg-black">
         <div className="to-blue-400[0.25] bg-gradient-to-tr from-purple-400/[0.15]">
-          <main className="mx-auto flex max-w-7xl flex-col p-12 md:min-h-screen">
+          <main className="mx-auto flex max-w-7xl flex-col p-8 md:min-h-screen">
             <header className="flex flex-col items-center justify-between border-b border-pink-400/[0.15] pb-8 md:flex-row md:pb-10">
               <div>
                 <Link href="/">
@@ -66,8 +66,8 @@ const Home = ({ collections }: Props) => {
               </div>
             </header>
             {/* TESTING */}
-            <div className="grid flex-grow items-center gap-0 pb-48 md:grid-cols-2 md:gap-24 md:pt-24">
-              <div className="col-span-1 mt-10 flex flex-col space-y-6 rounded-xl text-center md:text-left  lg:justify-center lg:space-y-2">
+            <div className="grid flex-grow items-center gap-0 pb-12 md:grid-cols-2 md:gap-24 md:pb-48 md:pt-24">
+              <div className="col-span-1 mb-12 mt-16 flex flex-col space-y-6 rounded-xl text-center md:mb-0 md:text-left  lg:justify-center lg:space-y-2">
                 {/* HERO COPY */}
                 <h1 className="font-poppins text-3xl font-extralight text-white md:max-w-md md:text-6xl">
                   The <span className="font-bold text-purple-500">best</span>{' '}
@@ -148,36 +148,41 @@ const Home = ({ collections }: Props) => {
             </div>
             {/* TESTING */}
             <div className="pt-12 pb-24 md:grid md:grid-cols-4">
-              <div className="md:col-span-3 md:col-start-2">
-                <section className="pb-8 lg:pb-16">
-                  <h1 className="font-poppins text-3xl font-extralight text-white  md:text-4xl">
-                    Let's{' '}
-                    <span className="font-bold text-purple-500">explore</span>{' '}
+              <div className="md:col-span-4 xl:col-span-3 xl:col-start-2">
+                <section className="pb-12 lg:pb-16">
+                  <h1 className="text-center font-poppins text-3xl font-extralight text-white md:text-left  md:text-4xl">
+                    <span className="font-bold text-purple-500">Explore</span>{' '}
                     the collections:
                   </h1>
                 </section>
-                <div className="flexflex-col items-stretch justify-center  space-y-8 md:space-y-24">
+                <div className="flex flex-col items-stretch justify-center  space-y-8 md:space-y-24">
                   <div className="grid gap-6 sm:grid-cols-2 md:gap-8">
                     {collections.map((collection, idx) => (
                       <Link key={idx} href={`/nft/${collection.slug.current}`}>
                         <div className="group relative cursor-pointer">
                           <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-80"></div>
 
-                          <div className="relative flex items-center justify-between space-x-4 divide-gray-600 rounded-xl bg-black px-2 leading-none  text-blue-200 transition duration-200 hover:text-purple-300 sm:p-3">
+                          <div className="relative flex items-center justify-between space-x-4 divide-gray-600 rounded-xl bg-black px-1.5 leading-none  text-blue-200 transition duration-200 hover:text-purple-300 sm:p-2">
                             <div className="duration-600 w-full origin-top-left rounded-2xl p-3 sm:w-auto md:w-full">
-                              <div className="flex items-center gap-3 sm:flex-col md:flex-row md:gap-6">
+                              <div className="flex items-center gap-4 sm:flex-col md:flex-row md:gap-6">
                                 <div className=" rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5">
                                   <img
-                                    className="lg:w-38 h-auto w-24 flex-shrink rounded-lg object-cover sm:w-full md:w-32"
+                                    className="lg:w-38 h-auto w-16 flex-shrink rounded-lg object-cover sm:w-full md:w-32"
                                     src={urlFor(collection.previewImage).url()}
                                     alt=""
                                   />
                                 </div>
 
-                                <div className="text-left lg:py-8">
-                                  <h2 className="font-poppins text-2xl font-medium text-amber-300 sm:text-2xl xl:text-3xl">
+                                <div className="text-left sm:text-center md:text-left lg:py-8">
+                                  <h2 className="font-poppins text-xl text-amber-300 md:text-2xl xl:text-3xl">
                                     {collection.title}
                                   </h2>
+                                  <p className="mt-2 hidden font-poppins font-extralight text-white sm:block">
+                                    {collection.description}
+                                  </p>
+                                  <p className="mt-2 font-poppins font-medium text-purple-400">
+                                    {collection.nftCollectionName}
+                                  </p>
                                 </div>
                               </div>
                             </div>
