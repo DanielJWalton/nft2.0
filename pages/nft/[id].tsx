@@ -15,7 +15,7 @@ function NFTDropPage({ collection }: Props) {
     <Container>
       {/* MAIN */}
       <div className="mt-8 flex flex-grow items-center justify-center md:mt-0 md:pt-12">
-        <section className="grid w-full grid-cols-2 items-center gap-0 rounded-xl bg-gradient-to-tr from-purple-500/[0.15] to-blue-500/[0.1] p-6 dark:from-purple-800/[0.15] dark:to-blue-800/[0.1] md:grid-cols-4 md:gap-8 lg:grid-cols-5 lg:items-stretch lg:gap-12">
+        <section className="grid w-full grid-cols-2 items-center gap-0 rounded-xl bg-gradient-to-tr from-purple-400/[0.10] to-blue-400/[0.05] p-6 dark:from-purple-800/[0.10] dark:to-blue-800/[0.05] md:grid-cols-4 md:gap-8 lg:grid-cols-5 lg:items-stretch lg:gap-12">
           <div className="col-span-2">
             <div className="my-auto rounded-xl bg-gradient-to-bl from-pink-600/[0.3] to-blue-400/[0.3] p-1.5 transition duration-500 ease-in-out hover:rotate-1  dark:from-pink-600/[0.1] dark:to-blue-400/[0.1] md:p-3">
               {/* HERO IMAGES */}
