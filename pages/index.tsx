@@ -34,7 +34,7 @@ const Home = ({ collections }: Props) => {
           <div className="grid grid-cols-3 gap-3 md:gap-6">
             {/* HERO IMAGES */}
             <div className="flex flex-col gap-3 pt-24 md:gap-6">
-              <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
+              <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-500 ease-in-out hover:-translate-y-1">
                 <Image
                   src={bayc}
                   width={400}
@@ -44,7 +44,7 @@ const Home = ({ collections }: Props) => {
                   className="rounded-lg pt-2"
                 />
               </div>
-              <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
+              <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-500 ease-in-out  hover:-translate-y-1">
                 <Image
                   src={punk}
                   width={400}
@@ -56,7 +56,7 @@ const Home = ({ collections }: Props) => {
               </div>
             </div>
             <div className="flex flex-col gap-3 pt-12 md:gap-6">
-              <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
+              <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-500 ease-in-out hover:-translate-y-1">
                 <Image
                   src={mayc}
                   width={400}
@@ -66,7 +66,7 @@ const Home = ({ collections }: Props) => {
                   className="rounded-lg"
                 />
               </div>
-              <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
+              <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-500 ease-in-out hover:-translate-y-1">
                 <Image
                   src={doodle}
                   width={400}
@@ -78,7 +78,7 @@ const Home = ({ collections }: Props) => {
               </div>
             </div>
             <div className="flex flex-col gap-3 md:gap-6">
-              <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
+              <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-500 ease-in-out hover:-translate-y-1">
                 <Image
                   src={azuki}
                   width={400}
@@ -88,7 +88,7 @@ const Home = ({ collections }: Props) => {
                   className="rounded-lg"
                 />
               </div>
-              <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
+              <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-500 ease-in-out hover:-translate-y-1">
                 <Image
                   src={something}
                   width={400}
@@ -115,7 +115,7 @@ const Home = ({ collections }: Props) => {
             <div className="grid gap-6 sm:grid-cols-2 md:gap-8">
               {collections.map((collection, idx) => (
                 <Link key={idx} href={`/nft/${collection.slug.current}`}>
-                  <div className="group relative cursor-pointer">
+                  <div className="group relative cursor-pointer  transition duration-500 ease-in-out hover:rotate-1 hover:scale-105">
                     <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-80"></div>
 
                     <div className="relative flex items-center justify-between space-x-4 divide-gray-600 rounded-xl bg-white px-1.5 leading-none text-blue-200  transition duration-200 hover:text-purple-300 dark:bg-black sm:p-2">
