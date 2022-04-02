@@ -39,8 +39,7 @@ function Container({ children }: Props) {
                   The{' '}
                   <span className="font-medium text-purple-800 dark:text-purple-400">
                     Greatest
-                  </span>{' '}
-                  NFT Market Place
+                  </span>
                 </h1>
               </Link>
 
