@@ -38,7 +38,7 @@ function Container({ children }: Props) {
                 <h1 className="cursor-pointer font-poppins text-sm font-extralight uppercase tracking-wider text-purple-800/75 dark:text-purple-300/50 md:text-xl">
                   The{' '}
                   <span className="font-medium text-purple-800 dark:text-purple-400">
-                    Greatest
+                    NFTS
                   </span>
                 </h1>
               </Link>
