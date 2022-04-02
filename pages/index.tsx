@@ -1,11 +1,19 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import { sanityClient, urlFor } from '../sanity'
 import { Collection } from '../typings'
 
 import Footer from '../components/Footer'
 import Button from '../components/Button'
+
+import bayc from '../public/bayc.png'
+import mayc from '../public/mayc.png'
+import punk from '../public/punk.png'
+import doodle from '../public/doodle.png'
+import azuki from '../public/azuki.png'
+import something from '../public/something.png'
 
 interface Props {
   collections: Collection[]
@@ -57,43 +65,127 @@ const Home = ({ collections }: Props) => {
                 </button>
               </div>
             </header>
-            <div className="flex flex-grow flex-col justify-center pt-12">
-              <section className="pb-8 lg:pb-16">
-                <h1 className="font-poppins text-4xl font-extralight text-purple-500 md:text-5xl">
-                  Let's <span className="font-bold text-amber-500">mint</span>{' '}
-                  NFTs
+            {/* TESTING */}
+            <div className="grid flex-grow items-center gap-0 pb-48 md:grid-cols-2 md:gap-24 md:pt-24">
+              <div className="col-span-1 mt-10 flex flex-col space-y-6 rounded-xl text-center md:text-left  lg:justify-center lg:space-y-2">
+                {/* HERO COPY */}
+                <h1 className="font-poppins text-3xl font-extralight text-white md:max-w-md md:text-6xl">
+                  The <span className="font-bold text-purple-500">best</span>{' '}
+                  all in one place
                 </h1>
-              </section>
-              <div className="flexflex-col items-stretch justify-center  space-y-8 md:space-y-24">
-                <div className="grid gap-6 sm:grid-cols-2 md:gap-8">
-                  {collections.map((collection, idx) => (
-                    <Link key={idx} href={`/nft/${collection.slug.current}`}>
-                      <div className="group relative cursor-pointer">
-                        <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
+              </div>
+              <div className="col-span-1">
+                <div className="grid grid-cols-3 gap-3 md:gap-6">
+                  {/* HERO IMAGES */}
+                  <div className="flex flex-col gap-3 pt-24 md:gap-6">
+                    <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
+                      <Image
+                        src={bayc}
+                        width={400}
+                        height={400}
+                        layout="responsive"
+                        alt="bayc"
+                        className="rounded-lg pt-2"
+                      />
+                    </div>
+                    <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
+                      <Image
+                        src={punk}
+                        width={400}
+                        height={400}
+                        layout="responsive"
+                        alt="punk"
+                        className="rounded-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-3 pt-12 md:gap-6">
+                    <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
+                      <Image
+                        src={mayc}
+                        width={400}
+                        height={400}
+                        layout="responsive"
+                        alt="mayc"
+                        className="rounded-lg"
+                      />
+                    </div>
+                    <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
+                      <Image
+                        src={doodle}
+                        width={400}
+                        height={400}
+                        layout="responsive"
+                        alt="doodle"
+                        className="rounded-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-3 md:gap-6">
+                    <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
+                      <Image
+                        src={azuki}
+                        width={400}
+                        height={400}
+                        layout="responsive"
+                        alt="mayc"
+                        className="rounded-lg"
+                      />
+                    </div>
+                    <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
+                      <Image
+                        src={something}
+                        width={400}
+                        height={400}
+                        layout="responsive"
+                        alt="doodle"
+                        className="rounded-lg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* TESTING */}
+            <div className="pt-12 pb-24 md:grid md:grid-cols-4">
+              <div className="md:col-span-3 md:col-start-2">
+                <section className="pb-8 lg:pb-16">
+                  <h1 className="font-poppins text-3xl font-extralight text-white  md:text-4xl">
+                    Let's{' '}
+                    <span className="font-bold text-purple-500">explore</span>{' '}
+                    the collections:
+                  </h1>
+                </section>
+                <div className="flexflex-col items-stretch justify-center  space-y-8 md:space-y-24">
+                  <div className="grid gap-6 sm:grid-cols-2 md:gap-8">
+                    {collections.map((collection, idx) => (
+                      <Link key={idx} href={`/nft/${collection.slug.current}`}>
+                        <div className="group relative cursor-pointer">
+                          <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-80"></div>
 
-                        <div className="relative flex items-center justify-between space-x-4 divide-gray-600 rounded-xl bg-black px-2 leading-none  text-blue-200 transition duration-200 hover:text-purple-300 sm:p-3">
-                          <div className="duration-600 w-full origin-top-left rounded-2xl p-3 sm:w-auto md:w-full">
-                            <div className="flex items-center gap-3 sm:flex-col md:flex-row md:gap-6 ">
-                              <img
-                                className="lg:w-38 h-auto w-24 flex-shrink rounded-lg object-cover sm:w-full md:w-36"
-                                src={urlFor(collection.mainImage).url()}
-                                alt=""
-                              />
+                          <div className="relative flex items-center justify-between space-x-4 divide-gray-600 rounded-xl bg-black px-2 leading-none  text-blue-200 transition duration-200 hover:text-purple-300 sm:p-3">
+                            <div className="duration-600 w-full origin-top-left rounded-2xl p-3 sm:w-auto md:w-full">
+                              <div className="flex items-center gap-3 sm:flex-col md:flex-row md:gap-6">
+                                <div className=" rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5">
+                                  <img
+                                    className="lg:w-38 h-auto w-24 flex-shrink rounded-lg object-cover sm:w-full md:w-32"
+                                    src={urlFor(collection.previewImage).url()}
+                                    alt=""
+                                  />
+                                </div>
 
-                              <div className="text-left lg:py-8">
-                                <h2 className="font-poppins text-2xl font-medium text-white sm:text-3xl xl:text-4xl">
-                                  {collection.title}
-                                </h2>
-                                <p className="mt-1 text-sm font-extralight uppercase text-purple-400 xl:text-lg">
-                                  {collection.description}
-                                </p>
+                                <div className="text-left lg:py-8">
+                                  <h2 className="font-poppins text-2xl font-medium text-amber-300 sm:text-2xl xl:text-3xl">
+                                    {collection.title}
+                                  </h2>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </Link>
-                  ))}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

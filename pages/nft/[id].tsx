@@ -5,12 +5,11 @@ import { sanityClient, urlFor } from '../../sanity'
 import { Collection } from '../../typings'
 import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
 
-import bayc from '../../public/bayc.png'
-import mayc from '../../public/mayc.png'
-import punk from '../../public/punk.png'
-import doodle from '../../public/doodle.png'
-import azuki from '../../public/azuki.png'
-import something from '../../public/something.png'
+import doodle1 from '../../public/doodle/00.png'
+import doodle2 from '../../public/doodle/01.png'
+import doodle3 from '../../public/doodle/02.png'
+import doodle4 from '../../public/doodle/03.png'
+// import doodle5 from '../../public/doodle/05.png'
 
 import Button from '../../components/Button'
 import Footer from '../../components/Footer'
@@ -79,112 +78,91 @@ function NFTDropPage({ collection }: Props) {
               </div>
             </header>
             {/* MAIN */}
-            <div className="grid flex-grow items-center gap-0 md:grid-cols-2 md:gap-24 md:pt-12">
-              <div className="col-span-1 mt-10 flex flex-col space-y-6 rounded-xl text-center md:text-left  lg:justify-center lg:space-y-2">
-                {/* HERO COPY */}
-                <h1 className="font-poppins text-4xl font-medium text-white lg:text-6xl">
-                  {collection.title}
-                </h1>
-                <p className="text-md p-2  pt-2 font-poppins font-extralight uppercase tracking-wider text-purple-300 lg:text-lg">
-                  <span className="font-poppins font-semibold">
-                    {collection.nftCollectionName}
-                  </span>{' '}
-                  {collection.description}
-                </p>
-              </div>
-              <div className="col-span-1">
-                <div className="grid grid-cols-3 gap-3 md:gap-6">
-                  {/* HERO IMAGES */}
-                  <div className="flex flex-col gap-3 pt-24 md:gap-6">
-                    <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
-                      <Image
-                        src={urlFor(collection.mainImage).url()}
-                        width={400}
-                        height={400}
-                        layout="responsive"
-                        alt="bayc"
-                        className="rounded-lg pt-2"
-                      />
-                    </div>
-                    <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
-                      <Image
-                        src={punk}
-                        width={400}
-                        height={400}
-                        layout="responsive"
-                        alt="punk"
-                        className="rounded-lg"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-3 pt-12 md:gap-6">
-                    <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
-                      <Image
-                        src={mayc}
-                        width={400}
-                        height={400}
-                        layout="responsive"
-                        alt="mayc"
-                        className="rounded-lg"
-                      />
-                    </div>
-                    <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
-                      <Image
-                        src={doodle}
-                        width={400}
-                        height={400}
-                        layout="responsive"
-                        alt="doodle"
-                        className="rounded-lg"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-3 md:gap-6">
-                    <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
-                      <Image
-                        src={azuki}
-                        width={400}
-                        height={400}
-                        layout="responsive"
-                        alt="mayc"
-                        className="rounded-lg"
-                      />
-                    </div>
-                    <div className="origin-top-left rounded-xl bg-gradient-to-bl from-pink-600/25 to-blue-400/25 p-1.5 transition duration-200 ease-in-out hover:rotate-1 hover:scale-105">
-                      <Image
-                        src={something}
-                        width={400}
-                        height={400}
-                        layout="responsive"
-                        alt="doodle"
-                        className="rounded-lg"
-                      />
-                    </div>
+            <div className="flex flex-grow items-center justify-center md:pt-12">
+              <section className="grid w-full gap-0 rounded-xl bg-gradient-to-tr from-purple-800/[0.15] to-blue-900/[0.1] p-6 md:grid-cols-5 md:gap-12">
+                <div className="col-span-2 flex flex-col space-y-6 rounded-xl text-center md:text-left  lg:justify-center lg:space-y-2">
+                  <div className="rounded-xl bg-gradient-to-bl from-pink-600/[0.1] to-blue-400/[0.1] p-1.5 md:p-3">
+                    {/* HERO IMAGES */}
+                    <Image
+                      src={urlFor(collection.mainImage).url()}
+                      width={400}
+                      height={400}
+                      layout="responsive"
+                      alt="bayc"
+                      className="rounded-lg pt-2"
+                    />
                   </div>
                 </div>
-                <button className="mt-10 grid w-full justify-center">
-                  <Button
-                    icon={
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        />
-                      </svg>
-                    }
-                    text="MINT NFT (0.01 ETH)"
-                  />
-                </button>
-              </div>
+                <div className="relative col-span-3 flex flex-col justify-center">
+                  {/* HERO COPY */}
+                  <div className="flex flex-grow flex-col justify-center">
+                    <h1 className="font-poppins text-4xl font-medium text-white lg:text-6xl">
+                      {collection.title}
+                    </h1>
+                    <p className="text-md mb-4 p-2 pt-1 font-poppins font-extralight uppercase tracking-wider text-amber-400 lg:text-lg">
+                      <span className="font-poppins font-semibold">THE</span>{' '}
+                      {collection.description}
+                    </p>
+                    <p className="font-poppins text-white/75 md:max-w-lg">
+                      Welcome to the world's first and largest NFT marketplace.
+                      Discover, collect, and sell extraordinary NFTs and become
+                      an owner today. Connect your wallet to get started. and
+                      good luck!
+                    </p>
+                  </div>
+                  <button className="space-between flex w-full items-center gap-6 pb-2">
+                    <Button
+                      icon={
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"
+                          />
+                        </svg>
+                      }
+                      text={`MINT ${collection.nftCollectionName} (0.01 ETH)`}
+                    />
+
+                    <Link href="/">
+                      <div className="group relative">
+                        <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-amber-600 to-pink-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
+
+                        <div className="relative flex items-center space-x-4 divide-gray-600 rounded-lg  bg-black px-7 py-4 leading-none text-blue-200 transition duration-200 hover:text-purple-300">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                            />
+                          </svg>
+                          <span className="font-poppins text-lg capitalize tracking-wider text-white transition  duration-200 group-hover:text-purple-300">
+                            View Another Collection
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </button>
+                </div>
+              </section>
             </div>
+
+            {/* MINT */}
+            <section></section>
           </div>
         </div>
         <Footer />
