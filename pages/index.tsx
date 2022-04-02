@@ -26,8 +26,8 @@ const Home = ({ collections }: Props) => {
         <div className="col-span-1 mb-12 mt-16 flex flex-col space-y-6 rounded-xl text-center md:mb-0 md:text-left  lg:justify-center lg:space-y-2">
           {/* HERO COPY */}
           <h1 className="font-poppins text-3xl font-extralight dark:text-white  md:max-w-md md:text-6xl">
-            The best <span className="font-bold text-purple-500">NFTS</span> all
-            in one place
+            The best <span className="font-bold text-purple-500">NFTS</span> in
+            one place
           </h1>
         </div>
         <div className="col-span-1">
