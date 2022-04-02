@@ -2,6 +2,7 @@ import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
 import { sanityClient, urlFor } from '../sanity'
 import { Collection } from '../typings'
 
@@ -20,6 +21,10 @@ interface Props {
 }
 
 const Home = ({ collections }: Props) => {
+  // Auth
+  const connectWithMetamask = useMetamask()
+  const address = useAddress()
+  const disconnect = useDisconnect()
   return (
     <>
       <Head>
@@ -42,7 +47,18 @@ const Home = ({ collections }: Props) => {
                 </Link>
               </div>
               <div className="mt-6 flex flex-col items-center space-y-4 md:mt-0 md:flex-row  md:space-y-0 md:space-x-5">
-                <button>
+                {address && (
+                  <p className="text-center text-sm text-amber-300">
+                    You're logged in with wallet {address.substring(0, 5)}
+                    ...
+                    {address.substring(address.length - 5)}
+                  </p>
+                )}
+                <button
+                  onClick={() =>
+                    address ? disconnect() : connectWithMetamask()
+                  }
+                >
                   <Button
                     icon={
                       <svg
@@ -56,11 +72,11 @@ const Home = ({ collections }: Props) => {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                          d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                         />
                       </svg>
                     }
-                    text={'Light'}
+                    text={address ? 'Sign Out' : 'Sign In'}
                   />
                 </button>
               </div>
