@@ -36,7 +36,7 @@ function Container({ children }: Props) {
             <header className="z-50 flex flex-col items-center justify-between border-b border-pink-400/[0.15] pb-8 md:flex-row md:pb-10">
               <Link href="/">
                 <h1 className="cursor-pointer font-poppins text-sm font-extralight uppercase tracking-wider text-purple-800/75 dark:text-purple-300/50 md:text-xl">
-                  The{' '}
+                  The Best{' '}
                   <span className="font-medium text-purple-800 dark:text-purple-400">
                     NFTS
                   </span>
