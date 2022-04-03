@@ -20,13 +20,9 @@ interface Props {
 
 function NFTDropPage({ collection }: Props) {
   // Modal
-  let [isOpen, setIsOpen] = useState(true)
+  let [isOpen, setIsOpen] = useState(false)
   function closeModal() {
     setIsOpen(false)
-  }
-
-  function openModal() {
-    setIsOpen(true)
   }
   // state
   const [claimedSupply, setClaimedSupply] = useState<number>(0)
