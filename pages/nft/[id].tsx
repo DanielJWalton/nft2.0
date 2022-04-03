@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { useAddress, useNFTDrop } from '@thirdweb-dev/react'
 import { useTheme } from 'next-themes'
+import { Dialog, Transition } from '@headlessui/react'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -18,6 +19,15 @@ interface Props {
 }
 
 function NFTDropPage({ collection }: Props) {
+  // Modal
+  let [isOpen, setIsOpen] = useState(true)
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
   // state
   const [claimedSupply, setClaimedSupply] = useState<number>(0)
   const [totalSupply, setTotalSupply] = useState<BigNumber>()
@@ -110,6 +120,7 @@ function NFTDropPage({ collection }: Props) {
       .finally(() => {
         setLoading(false)
         toast.dismiss(notification)
+        setIsOpen(true)
       })
   }
 
@@ -118,6 +129,91 @@ function NFTDropPage({ collection }: Props) {
       {/* MAIN */}
       <div className="mt-8 flex flex-grow items-center justify-center md:mt-0 md:pt-12">
         <Toaster position="bottom-center" />
+
+        {/* MODAL */}
+
+        <Transition appear show={isOpen} as={Fragment}>
+          <Dialog
+            as="div"
+            className="fixed inset-0 z-10 overflow-y-auto"
+            onClose={closeModal}
+          >
+            <div className="min-h-screen px-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <Dialog.Overlay className="fixed inset-0" />
+              </Transition.Child>
+
+              {/* This element is to trick the browser into centering the modal contents. */}
+              <span
+                className="inline-block h-screen align-middle"
+                aria-hidden="true"
+              >
+                &#8203;
+              </span>
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <div className="my-8 inline-block w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-black">
+                  <Dialog.Title
+                    as="h3"
+                    className="font-poppins text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                  >
+                    Payment successful
+                  </Dialog.Title>
+                  <div className="mt-2">
+                    <p className="font-poppins text-sm text-gray-500 dark:text-white/75">
+                      Your payment has been successfully submitted.
+                      Congratulations!
+                    </p>
+                  </div>
+
+                  <div className="mt-4 md:mt-8">
+                    <button onClick={closeModal}>
+                      <div className="group relative cursor-pointer">
+                        <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
+
+                        <div className="relative flex items-center space-x-4 divide-gray-600 rounded-lg  bg-white px-7 py-4 leading-none text-black transition duration-200 hover:text-purple-500 dark:bg-black dark:text-white dark:hover:text-purple-300">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"
+                            />
+                          </svg>
+                          <span className="font-poppins text-lg capitalize tracking-wider text-black transition duration-200  group-hover:text-purple-500 dark:text-white dark:group-hover:text-purple-300">
+                            Got it, thanks!
+                          </span>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </Transition.Child>
+            </div>
+          </Dialog>
+        </Transition>
+        {/* /MODAL */}
         <section className="grid w-full grid-cols-2 items-center gap-0 rounded-xl bg-gradient-to-tr from-purple-400/[0.10] to-blue-400/[0.05] p-6 dark:from-purple-800/[0.10] dark:to-blue-800/[0.05] md:grid-cols-4 md:gap-8 lg:grid-cols-5 lg:items-stretch lg:gap-12">
           <div className="col-span-2">
             <div className="my-auto rounded-xl bg-gradient-to-bl from-pink-600/[0.3] to-blue-400/[0.3] p-1.5 transition duration-500 ease-in-out hover:rotate-1  dark:from-pink-600/[0.1] dark:to-blue-400/[0.1] md:p-3">
@@ -147,16 +243,16 @@ function NFTDropPage({ collection }: Props) {
                 owner today. Connect your wallet to get started.
               </p>
               {loading ? (
-                <p className="mb-6 mt-2 inline-block w-auto animate-pulse rounded-md bg-white py-3 px-4 font-poppins text-lg font-medium uppercase text-green-600 shadow-lg dark:bg-black dark:text-green-500 md:mb-0">
+                <p className="mb-6 mt-2 inline-block w-auto animate-pulse rounded-md bg-white py-3 px-4 font-poppins text-lg font-medium uppercase text-green-600 shadow-lg dark:bg-black dark:text-green-500 lg:mb-0">
                   Loading supply count ...
                 </p>
               ) : (
-                <p className="mb-6 mt-2 inline-block w-auto rounded-md bg-white py-3 px-4 font-poppins text-lg font-medium uppercase text-green-600 shadow-lg dark:bg-black dark:text-green-500 md:mb-0">
+                <p className="mb-6 mt-2 inline-block w-auto rounded-md bg-white py-3 px-4 font-poppins text-lg font-medium uppercase text-green-600 shadow-lg dark:bg-black dark:text-green-500 lg:mb-0">
                   {claimedSupply} / {totalSupply?.toString()} NFT's claimed
                 </p>
               )}
             </div>
-            <div className="space-between flex w-full flex-col items-center gap-4 md:gap-6 lg:flex-row lg:pb-2">
+            <div className="space-between flex w-full flex-col items-center gap-3 md:gap-4 lg:flex-row lg:pb-2">
               <div className="group relative w-full cursor-pointer">
                 {loading ? (
                   <div className="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000"></div>
@@ -240,8 +336,6 @@ function NFTDropPage({ collection }: Props) {
                   )}
 
                   <span className="font-poppins text-lg capitalize tracking-wider  transition  duration-200  ">
-                    {/* {`MINT ${collection.nftCollectionName}`} */}
-
                     {loading ? (
                       <>Loading...</>
                     ) : claimedSupply === totalSupply?.toNumber() ? (
