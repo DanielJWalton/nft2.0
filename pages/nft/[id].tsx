@@ -163,26 +163,30 @@ function NFTDropPage({ collection }: Props) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <div className="my-8 inline-block w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-black">
+                <div className="my-8 inline-block w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all dark:bg-black">
                   <Dialog.Title
                     as="h3"
-                    className="font-poppins text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                    className="font-poppins text-2xl font-medium leading-6 text-gray-900 dark:text-white"
                   >
-                    Payment successful
+                    Payment successful!
                   </Dialog.Title>
-                  <div className="mt-2">
-                    <p className="font-poppins text-sm text-gray-500 dark:text-white/75">
+                  <div className="mt-4">
+                    <p className="text-md  font-poppins text-gray-500 dark:text-white/75">
                       Your payment has been successfully submitted.
-                      Congratulations!
+                      Congratulations on your new{' '}
+                      <span className="font-bold text-purple-500">
+                        {collection.nftCollectionName}
+                      </span>
+                      .
                     </p>
                   </div>
 
                   <div className="mt-4 md:mt-8">
-                    <button onClick={closeModal}>
+                    <button onClick={closeModal} className="outline-0">
                       <div className="group relative cursor-pointer">
-                        <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
+                        <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 opacity-50 blur transition duration-1000 group-hover:opacity-100"></div>
 
-                        <div className="relative flex items-center space-x-4 divide-gray-600 rounded-lg  bg-white px-7 py-4 leading-none text-black transition duration-200 hover:text-purple-500 dark:bg-black dark:text-white dark:hover:text-purple-300">
+                        <div className="relative flex items-center space-x-4 divide-gray-600 rounded-lg  bg-white px-5 py-2 leading-none text-black transition duration-200 hover:text-purple-500 dark:bg-black dark:text-white dark:hover:text-purple-300">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-6 w-6"
@@ -197,7 +201,7 @@ function NFTDropPage({ collection }: Props) {
                               d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"
                             />
                           </svg>
-                          <span className="font-poppins text-lg capitalize tracking-wider text-black transition duration-200  group-hover:text-purple-500 dark:text-white dark:group-hover:text-purple-300">
+                          <span className="text-md font-poppins capitalize tracking-wider text-black transition duration-200  group-hover:text-purple-500 dark:text-white dark:group-hover:text-purple-300">
                             Got it, thanks!
                           </span>
                         </div>
