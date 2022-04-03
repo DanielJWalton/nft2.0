@@ -100,6 +100,8 @@ function NFTDropPage({ collection }: Props) {
         console.log(receipt)
         console.log(claimedTokenId)
         console.log(claimedNFT)
+
+        setIsOpen(true)
       })
       .catch((err) => {
         console.log(err)
@@ -116,7 +118,6 @@ function NFTDropPage({ collection }: Props) {
       .finally(() => {
         setLoading(false)
         toast.dismiss(notification)
-        setIsOpen(true)
       })
   }
 
