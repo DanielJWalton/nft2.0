@@ -31,13 +31,13 @@ function Container({ children }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="min-h-screen bg-white dark:bg-black">
-        <div className="to-blue-400[0.35] dark:to-blue-400[0.25] bg-gradient-to-tr from-purple-400/[0.35] dark:from-purple-400/[0.15]">
+        <div className="to-blue-400[0.35] dark:to-blue-400[0.25] bg-gradient-to-tr from-green-400/[0.35] dark:from-green-400/[0.15]">
           <div className="mx-auto flex min-h-screen max-w-7xl flex-col p-8">
-            <header className="z-50 flex flex-col items-center justify-between border-b border-pink-400/[0.15] pb-8 md:flex-row md:pb-10">
+            <header className="z-50 flex flex-col items-center justify-between border-b border-blue-400/[0.15] pb-8 md:flex-row md:pb-10">
               <Link href="/">
-                <h1 className="cursor-pointer font-poppins text-sm font-extralight uppercase tracking-wider text-purple-800/75 dark:text-purple-300/50 md:text-xl">
+                <h1 className="cursor-pointer font-poppins text-sm font-extralight uppercase tracking-wider text-green-800/75 dark:text-green-300/50 md:text-xl">
                   The Best{' '}
-                  <span className="font-medium text-purple-800 dark:text-purple-400">
+                  <span className="font-medium text-green-800 dark:text-green-400">
                     NFTS
                   </span>
                 </h1>
@@ -100,9 +100,9 @@ function Container({ children }: Props) {
                       {theme === 'dark' ? (
                         <button onClick={() => setTheme('light')}>
                           <div className="group relative">
-                            <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
+                            <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-full bg-gradient-to-r from-green-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
 
-                            <div className="relative flex items-center space-x-4 divide-gray-600 rounded-full  bg-white p-4 leading-none text-blue-500 transition duration-200 hover:text-purple-500 dark:bg-black dark:text-blue-200 dark:hover:text-purple-300">
+                            <div className="relative flex items-center space-x-4 divide-gray-600 rounded-full  bg-white p-4 leading-none text-blue-500 transition duration-200 hover:text-green-500 dark:bg-black dark:text-blue-200 dark:hover:text-green-300">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -123,9 +123,9 @@ function Container({ children }: Props) {
                       ) : (
                         <button onClick={() => setTheme('dark')}>
                           <div className="group relative">
-                            <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
+                            <div className="animate-tilt group-hover:duration-600 absolute -inset-0.5 rounded-full bg-gradient-to-r from-green-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
 
-                            <div className="relative flex items-center space-x-4 divide-gray-600 rounded-full  bg-white p-4 leading-none text-blue-500 transition duration-200 hover:text-purple-500 dark:bg-black dark:text-blue-200 dark:hover:text-purple-300">
+                            <div className="relative flex items-center space-x-4 divide-gray-600 rounded-full  bg-white p-4 leading-none text-blue-500 transition duration-200 hover:text-green-500 dark:bg-black dark:text-blue-200 dark:hover:text-green-300">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
